@@ -3,6 +3,7 @@ title: "Get to know OCED"
 format: html
 theme: sketchy
 echo: false
+self-contained: true
 ---
 
 ```{r packages, warning=F, message=F}
