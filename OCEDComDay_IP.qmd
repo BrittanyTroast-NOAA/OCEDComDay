@@ -1,0 +1,309 @@
+---
+title: "Get to know OCED"
+format: html
+theme: sketchy
+echo: false
+---
+
+```{r packages, warning=F, message=F}
+library(tidyverse)
+library(shiny)
+library(plotly)
+
+library(leaflet)
+library(wordcloud)
+```
+
+```{r data, warning=F, message=F}
+resp<-read.csv("OCED Community Day_Responses_Edited.csv")
+resp$Timestamp<-c(1:nrow(resp))
+colnames(resp)[1]<-"id"
+
+```
+
+::: panel-tabset
+## Hometown
+
+### Where is OCED from?
+
+```{r, warning=F, message=F}
+home<-resp[,c(1,7)]
+
+home<-home %>% separate(hometown, c("city","state"), sep = ",")
+home$city<-trimws(home$city, which = "both", whitespace = "[ \t\r\n]")
+home$state<-trimws(home$state, which = "both", whitespace = "[ \t\r\n]")
+
+home<-home %>% mutate(name=paste(city,state))
+
+
+testcity<-read.csv("uscities.csv")
+testcity<-testcity[,c(1,3,7:8)]
+testcity<-testcity %>% mutate(name=paste(city,state_id))
+testcity<-testcity[,c(5,3:4)]
+home<-left_join(home, testcity, by="name")
+# write.csv(home, "Hometown.csv")
+
+home<-read.csv("Hometown_Edited.csv")
+home<-select(home,city, state, name, lat, long=lng)
+#Map of Hometown locations
+leaflet(home) %>%
+  addTiles() %>%  # Add default OpenStreetMap map tiles
+  addMarkers(lng= ~long, lat= ~lat, popup = ~name)
+```
+
+## School Location
+
+### Where did OCED go to school?
+
+```{r, warning=F, message=F}
+schloc<-resp[,1:2]
+cities<-str_split(schloc$school_loc, pattern=";" )
+cities<-unlist(cities)
+schloc<-data.frame(city=cities)
+schloc<-schloc %>% separate(city, c("city","state"), sep = ",")
+schloc$city<-trimws(schloc$city, which = "both", whitespace = "[ \t\r\n]")
+schloc$state<-trimws(schloc$state, which = "both", whitespace = "[ \t\r\n]")
+
+schloc<-schloc %>% mutate(name=paste(city,state))
+
+uscity<-maps::us.cities
+
+schloc<-left_join(schloc, uscity, by="name")
+schloc<-schloc[,c(1:3,6:7)]
+
+# write.csv(schloc,"School_Loc.csv", row.names = F)
+
+#MANUAL FIX
+schloc<-read.csv("School_Loc_Fixed.csv")
+
+#Map of School locations
+leaflet(schloc) %>%
+  addTiles() %>%  # Add default OpenStreetMap map tiles
+  addMarkers(lng= ~long, lat= ~lat, popup = ~name)
+
+```
+
+## Years in Florida
+
+### How long have OCED members lived in FL?
+
+```{r, warning=F, message=F}
+years<-resp[,c(1,6)]
+years<-years %>% count(liv_fl, sort = T)
+years$liv_fl<-factor(years$liv_fl, levels=c("Never","Less than a year","1-5 Years","5-10 Years","10-15 Years","15+ Years"))
+
+ggplot(years, aes(x=liv_fl, y=n))+
+  geom_bar(stat="identity", aes(fill=liv_fl), color="black")+
+  labs(x="Years lived in Florida", y="Count")+
+  theme_bw()+theme(legend.position = "none")
+```
+
+## Miami Place
+
+```{r, warning=F, message=F}
+
+```
+
+## Hobbies
+
+### What are OCED's hobbies?
+
+```{r, warning=F, message=F}
+hobbies<-resp[,c(1,3)]
+hobs<-str_split(hobbies$hobbies, pattern="," )
+hobs<-unlist(hobs)
+hobbies<-data.frame(hobs=hobs)
+hobbies$hobs<-trimws(hobbies$hobs, which = "both", whitespace = "[ \t\r\n]")
+hobbies$hobs<-str_to_lower(hobbies$hobs)
+# hobbies$hobs<-gsub(" ", "_", hobbies$hobs)
+hobbies<-na.omit(hobbies)
+
+# write.csv(hobbies, "Hobbies.csv", row.names = F)
+
+hobcount<-hobbies %>% count(hobs, sort = T)
+# wordcloud2(data = hobcount, size=0.6, color=sample(rainbow(70)))
+wordcloud(hobcount$hobs, hobcount$n, min.freq = 1, random.color = T, colors = sample(rainbow(70)))
+
+
+```
+
+## Pets
+
+### What kind of pets does OCED have?
+
+```{r, warning=F, message=F}
+pets<-resp[,c(1,4)]
+pets<-str_split(pets$pets, pattern="," )
+pets<-unlist(pets)
+pet_df<-data.frame(pets=pets)
+pet_df$pets<-trimws(pet_df$pets, which = "both", whitespace = "[ \t\r\n]")
+pet_df$id<-c(1:nrow(pet_df))
+pet_df$pets<-str_to_title(pet_df$pets)
+pet_df$pets[pet_df$pets=="Small Furry Mammals"]<-"Small Furry\nMammals"
+
+
+pet_count<-pet_df %>% count(pets, sort = T)
+pet_count$pets<-factor(pet_count$pets, levels=c("Cat", "Dog", "Dolphins", "Fish", "Manatee","Small Furry\nMammals","No Pets", "Soon"))
+
+ggplot(pet_count, aes(x=pets, y=n))+
+  geom_bar(stat="identity", aes(fill=pets), color="black")+
+  labs(x="Pets", y="Count")+
+  theme_bw()+theme(legend.position = "none")
+
+
+```
+
+## Favorite Food
+
+### What are OCED's favorite foods?
+
+```{r, warning=F, message=F}
+food_df<-resp[,c(1,8)]
+food<-str_split(food_df$food, pattern="," )
+food<-unlist(food)
+food_df<-data.frame(food=food)
+food_df$food<-trimws(food_df$food, which = "both", whitespace = "[ \t\r\n]")
+# food_df$food<-str_to_title(food_df$food)
+# food_df$food<-gsub(" ", "_", food_df$food)
+food_df<-food_df[!apply(food_df == "", 1, all),]
+food_df<-data.frame(food=food_df)
+# write.csv(food_df, "food_df.csv", row.names = F)
+
+food_df<-food_df %>% count(food, sort = T)
+# wordcloud2(data = hobcount, size=0.6, color=sample(rainbow(70)))
+wordcloud(food_df$food, food_df$n, min.freq = 1, random.color = T, colors = sample(rainbow(70)))
+
+```
+
+## Favorite Animal
+
+### What are OCED's favorite animals?
+
+```{r, warning=F, message=F}
+ani_df<-resp[,c(1,9)]
+ani_df$animal<-str_to_title(ani_df$animal)
+
+ani_df<-ani_df[!ani_df$animal=="",]
+
+anicount<-ani_df %>% count(animal, sort = T)
+# wordcloud2(data = anicount, size=0.6, color=sample(rainbow(70)))
+wordcloud(anicount$animal, anicount$n, min.freq = 1, random.color = T, color=sample(rainbow(70)))
+```
+
+## Favorite Season
+
+### What is OCED's favorite season?
+
+```{r, warning=F, message=F}
+season_df<-resp[,c(1,10)]
+
+season_df<-season_df[!season_df$season=="",]
+seasoncount<-season_df %>% count(season, sort = T)
+
+seasoncount<-seasoncount %>% 
+  arrange(desc(season)) %>%
+  mutate(prop = n / sum(seasoncount$n, na.rm=T) *100) %>%
+  mutate(ypos = cumsum(prop)- 0.5*prop ) %>%
+  mutate(label= paste0(season, "\n", round(prop, 2),"%"))
+
+ggplot(seasoncount, aes(x="", y=prop, fill=season)) +
+  geom_bar(stat="identity", width=1, color="white", size=1) +
+  geom_label(aes(y=ypos, label=label), fill="white", fontface="bold", alpha=0.75)+
+  coord_polar("y", start=0)+
+  theme_void()+ theme(legend.position = "none")
+
+
+
+```
+
+## Favorite Sport
+
+### What are OCED's favorite sports?
+
+```{r, warning=F, message=F}
+sport<-resp[,c(1,11)]
+sport<-str_split(sport$sport, pattern="," )
+sport<-unlist(sport)
+sport_df<-data.frame(sport=sport)
+sport_df$sport<-trimws(sport_df$sport, which = "both", whitespace = "[ \t\r\n]")
+sport_df$id<-c(1:nrow(sport_df))
+sport_df<-sport_df[!sport_df$sport=="",]
+
+
+sport_count<-sport_df %>% count(sport, sort = T)
+sport_count$sport<-str_to_title(sport_count$sport)
+
+ggplot(sport_count, aes(x=reorder(sport, -n), y=n))+
+  geom_bar(stat="identity", aes(fill=sport), color="black")+
+  labs(x="Sport", y="Count")+
+  theme_bw()+theme(legend.position = "none",
+                   axis.text.x = element_text(angle = 45, hjust = 1))
+```
+
+## Fun Fact
+
+```{r, warning=F, message=F, results="hide"}
+ff<-resp[,c(1,13:14)]
+ff<-ff[!ff$funfact_cond=="",]
+ff$id<-NULL
+ff$funfact_cond<-str_to_sentence(ff$funfact_cond)
+
+
+test<-ff[ff$funfact_cat=="Previous Job/Experience",]
+testnm<-print(paste0("<b>",test[1,2],":</b>"), quote = F)
+
+output <- paste0("<br> &bull; ", test$funfact_cond)
+testtext<-print(output, quote = FALSE)
+tester<-paste(testtext, collapse = "\n")
+
+#loop fun fact
+cats<-unique(ff$funfact_cat)
+
+for (i in 1:length(unique(cats))) {
+  df<-ff[ff$funfact_cat==cats[i],]
+  assign(paste0("ffcat_nm",i),print(paste0("<b>",df[1,2],":</b>"), quote = F))
+  
+  output <- paste0("<br> &bull; ", df$funfact_cond)
+  dftext<-print(output, quote = FALSE)
+  ffacts<-paste(dftext, collapse = "\n")
+  ffacts<-str_sub(ffacts, 6)
+  assign(paste0("ffacts",i),ffacts)
+}
+
+```
+
+`r ffcat_nm1`
+
+::: {style="column-count: 2;"}
+`r ffacts1`
+:::
+
+------------------------------------------------------------------------
+
+`r ffcat_nm2`
+
+::: {style="column-count: 2;"}
+`r ffacts2`
+:::
+
+------------------------------------------------------------------------
+`r ffcat_nm3` 
+
+::: {style="column-count: 2;"}
+`r ffacts3`
+:::
+
+------------------------------------------------------------------------
+`r ffcat_nm4`
+
+::: {style="column-count: 2;"}
+ `r ffacts4`
+:::
+
+------------------------------------------------------------------------
+`r ffcat_nm5`
+
+::: {style="column-count: 2;"}
+ `r ffacts5`
+:::
+:::
