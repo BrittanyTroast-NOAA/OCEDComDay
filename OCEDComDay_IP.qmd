@@ -9,10 +9,11 @@ self-contained: true
 ```{r packages, warning=F, message=F}
 library(tidyverse)
 library(shiny)
-library(plotly)
+# library(plotly)
 
 library(leaflet)
 library(wordcloud)
+library(scales)
 ```
 
 ```{r data, warning=F, message=F}
@@ -94,14 +95,33 @@ years<-years %>% count(liv_fl, sort = T)
 years$liv_fl<-factor(years$liv_fl, levels=c("Never","Less than a year","1-5 Years","5-10 Years","10-15 Years","15+ Years"))
 
 ggplot(years, aes(x=liv_fl, y=n))+
-  geom_bar(stat="identity", aes(fill=liv_fl), color="black")+
+  geom_bar(stat="identity", aes(fill=liv_fl), color="black", size=1)+
   labs(x="Years lived in Florida", y="Count")+
-  theme_bw()+theme(legend.position = "none")
+  theme_bw()+theme(legend.position = "none",
+                   axis.text = element_text(size=12),
+                   axis.title = element_text(size=14))
 ```
 
 ## Miami Place
 
+### Where in Miami is your favorite place?
+
 ```{r, warning=F, message=F}
+mia<-resp[,c(1,5,15)]
+
+mia<-mia[!mia$place=="",]
+
+miacount<-mia %>% count(place, sort = T)
+wordcloud(miacount$place, miacount$n, min.freq = 1, random.color = T, colors = hue_pal()(12))
+
+catcount<-mia %>% count(place_cat, sort = T)
+ggplot(catcount, aes(x=reorder(place_cat,-n), y=n))+
+  geom_bar(stat="identity", aes(fill=place_cat), color="black", size=1)+
+  labs(x="Miami Place Categories", y="Count")+
+  theme_bw()+theme(legend.position = "none",
+                   axis.text = element_text(size=12),
+                   axis.title = element_text(size=14))
+
 
 ```
 
@@ -123,7 +143,7 @@ hobbies<-na.omit(hobbies)
 
 hobcount<-hobbies %>% count(hobs, sort = T)
 # wordcloud2(data = hobcount, size=0.6, color=sample(rainbow(70)))
-wordcloud(hobcount$hobs, hobcount$n, min.freq = 1, random.color = T, colors = sample(rainbow(70)))
+wordcloud(hobcount$hobs, hobcount$n, min.freq = 1, random.color = T, colors = hue_pal()(12))
 
 
 ```
@@ -147,9 +167,11 @@ pet_count<-pet_df %>% count(pets, sort = T)
 pet_count$pets<-factor(pet_count$pets, levels=c("Cat", "Dog", "Dolphins", "Fish", "Manatee","Small Furry\nMammals","No Pets", "Soon"))
 
 ggplot(pet_count, aes(x=pets, y=n))+
-  geom_bar(stat="identity", aes(fill=pets), color="black")+
+  geom_bar(stat="identity", aes(fill=pets), color="black", size=1)+
   labs(x="Pets", y="Count")+
-  theme_bw()+theme(legend.position = "none")
+  theme_bw()+theme(legend.position = "none",
+                   axis.text = element_text(size=12),
+                   axis.title = element_text(size=14))
 
 
 ```
@@ -164,15 +186,13 @@ food<-str_split(food_df$food, pattern="," )
 food<-unlist(food)
 food_df<-data.frame(food=food)
 food_df$food<-trimws(food_df$food, which = "both", whitespace = "[ \t\r\n]")
-# food_df$food<-str_to_title(food_df$food)
-# food_df$food<-gsub(" ", "_", food_df$food)
 food_df<-food_df[!apply(food_df == "", 1, all),]
 food_df<-data.frame(food=food_df)
 # write.csv(food_df, "food_df.csv", row.names = F)
 
 food_df<-food_df %>% count(food, sort = T)
 # wordcloud2(data = hobcount, size=0.6, color=sample(rainbow(70)))
-wordcloud(food_df$food, food_df$n, min.freq = 1, random.color = T, colors = sample(rainbow(70)))
+wordcloud(food_df$food, food_df$n, min.freq = 1, random.color = T, colors = hue_pal()(12))
 
 ```
 
@@ -188,7 +208,7 @@ ani_df<-ani_df[!ani_df$animal=="",]
 
 anicount<-ani_df %>% count(animal, sort = T)
 # wordcloud2(data = anicount, size=0.6, color=sample(rainbow(70)))
-wordcloud(anicount$animal, anicount$n, min.freq = 1, random.color = T, color=sample(rainbow(70)))
+wordcloud(anicount$animal, anicount$n, min.freq = 1, random.color = T, colors = hue_pal()(12))
 ```
 
 ## Favorite Season
@@ -208,7 +228,7 @@ seasoncount<-seasoncount %>%
   mutate(label= paste0(season, "\n", round(prop, 2),"%"))
 
 ggplot(seasoncount, aes(x="", y=prop, fill=season)) +
-  geom_bar(stat="identity", width=1, color="white", size=1) +
+  geom_bar(stat="identity", width=1, color="black", size=1) +
   geom_label(aes(y=ypos, label=label), fill="white", fontface="bold", alpha=0.75)+
   coord_polar("y", start=0)+
   theme_void()+ theme(legend.position = "none")
@@ -235,14 +255,17 @@ sport_count<-sport_df %>% count(sport, sort = T)
 sport_count$sport<-str_to_title(sport_count$sport)
 
 ggplot(sport_count, aes(x=reorder(sport, -n), y=n))+
-  geom_bar(stat="identity", aes(fill=sport), color="black")+
+  geom_bar(stat="identity", aes(fill=sport), color="black", size=1)+
   labs(x="Sport", y="Count")+
   theme_bw()+theme(legend.position = "none",
-                   axis.text.x = element_text(angle = 45, hjust = 1))
+                   axis.text.x = element_text(angle = 45, hjust = 1,size=10.5),
+                   axis.text.y = element_text(size=12),
+                   axis.title = element_text(size=14))
 ```
 
 ## Fun Fact
 
+### What are some of the fun facts about OCED?
 ```{r, warning=F, message=F, results="hide"}
 ff<-resp[,c(1,13:14)]
 ff<-ff[!ff$funfact_cond=="",]
@@ -250,15 +273,17 @@ ff$id<-NULL
 ff$funfact_cond<-str_to_sentence(ff$funfact_cond)
 
 
-test<-ff[ff$funfact_cat=="Previous Job/Experience",]
-testnm<-print(paste0("<b>",test[1,2],":</b>"), quote = F)
-
-output <- paste0("<br> &bull; ", test$funfact_cond)
-testtext<-print(output, quote = FALSE)
-tester<-paste(testtext, collapse = "\n")
+# test<-ff[ff$funfact_cat=="Previous Job/Experience",]
+# testnm<-print(paste0("<b>",test[1,2],":</b>"), quote = F)
+# 
+# output <- paste0("<br> &bull; ", test$funfact_cond)
+# testtext<-print(output, quote = FALSE)
+# tester<-paste(testtext, collapse = "\n")
 
 #loop fun fact
-cats<-unique(ff$funfact_cat)
+# ff$funfact_cat<-factor(ff$funfact_cat, levels = c("Previous Job/Experience","Interest/Activities","Skill", "Injury","Miscellaneous"))
+cats<-c("Previous Job/Experience","Interest/Activities","Skill", "Injury","Miscellaneous")
+
 
 for (i in 1:length(unique(cats))) {
   df<-ff[ff$funfact_cat==cats[i],]
