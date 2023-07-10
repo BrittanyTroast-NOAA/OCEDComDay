@@ -14,6 +14,7 @@ library(shiny)
 library(leaflet)
 library(wordcloud)
 library(scales)
+
 ```
 
 ```{r data, warning=F, message=F}
@@ -79,10 +80,10 @@ schloc<-schloc[,c(1:3,6:7)]
 schloc<-read.csv("School_Loc_Fixed.csv")
 
 #Map of School locations
-leaflet(schloc) %>%
+schl_leaf<-leaflet(schloc) %>%
   addTiles() %>%  # Add default OpenStreetMap map tiles
   addMarkers(lng= ~long, lat= ~lat, popup = ~name)
-
+schl_leaf
 ```
 
 ## Years in Florida
