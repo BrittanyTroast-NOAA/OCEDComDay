@@ -169,13 +169,13 @@ pet_df$pets[pet_df$pets=="Small Furry Mammals"]<-"Small Furry\nMammals"
 
 
 pet_count<-pet_df %>% count(pets, sort = T)
-pet_count$pets<-factor(pet_count$pets, levels=c("Cat", "Dog", "Dolphins", "Fish", "Manatee","Small Furry\nMammals","No Pets", "Soon"))
+pet_count$pets<-factor(pet_count$pets, levels=c("Cat", "Dog", "Dolphins", "Fish", "Manatee","Small Furry\nMammals","No Pets", "Soon", "Bird"))
 
 ggplot(pet_count, aes(x=pets, y=n))+
   geom_bar(stat="identity", aes(fill=pets), color="black", size=1)+
   labs(x="Pets", y="Count")+
   theme_bw()+theme(legend.position = "none",
-                   axis.text = element_text(size=12),
+                   axis.text = element_text(size=11),
                    axis.title = element_text(size=14))
 
 
