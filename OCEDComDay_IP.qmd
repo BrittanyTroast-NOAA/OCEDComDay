@@ -256,8 +256,8 @@ sport_df$id<-c(1:nrow(sport_df))
 sport_df<-sport_df[!sport_df$sport=="",]
 
 
+sport_df$sport<-str_to_title(sport_df$sport)
 sport_count<-sport_df %>% count(sport, sort = T)
-sport_count$sport<-str_to_title(sport_count$sport)
 
 ggplot(sport_count, aes(x=reorder(sport, -n), y=n))+
   geom_bar(stat="identity", aes(fill=sport), color="black", size=1)+
@@ -334,7 +334,5 @@ for (i in 1:length(unique(cats))) {
 ------------------------------------------------------------------------
 `r ffcat_nm5`
 
-::: {style="column-count: 2;"}
- `r ffacts5`
-:::
+`r ffacts5`
 :::
