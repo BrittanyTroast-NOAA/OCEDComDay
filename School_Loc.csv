@@ -1,68 +1,89 @@
-city,state,name,lat,long
-Miami,FL,Miami FL,25.78,-80.21
-Bogota,Columbia,Bogota Columbia,4.62,-74.06
-Barcelona,Spain,Barcelona Spain,41.39,2.17
-Madison,WI,Madison WI,43.08,-89.39
-Miami,FL,Miami FL,25.78,-80.21
-College Park,MD,College Park MD,38.99,-76.94
-Corvallis,OR,Corvallis OR,44.57,-123.28
-Tampa,FL,Tampa FL,27.96,-82.48
-Baltimore,MD,Baltimore MD,39.3,-76.61
-Tallahassee,FL,Tallahassee FL,30.46,-84.28
-Toronto,ON,Toronto ON,43.65,-79.38
-Columbia,SC,Columbia SC,34.04,-80.89
-Charleston,SC,Charleston SC,32.79,-79.99
-Tampa,FL,Tampa FL,27.96,-82.48
-Norfolk,VA,Norfolk VA,36.92,-76.24
-Fort Pierce,FL,Fort Pierce FL,27.45,-80.33
-Columbus,OH,Columbus OH,39.99,-82.99
-St. Petersburg,FL,St. Petersburg FL,27.76,-82.64
-Davidson,NC,Davidson NC,35.49,80.85
-Miami,FL,Miami FL,25.78,-80.21
-Gainesville,FL,Gainesville FL,29.67,-82.34
-Orlando,FL,Orlando FL,28.5,-81.37
-Fort Lauderdale,FL,Fort Lauderdale FL,26.14,-80.14
-Honolulu,HI,Honolulu HI,21.32,-157.8
-San Diego,CA,San Diego CA,32.81,-117.14
-Exeter,England,Exeter England,50.73,-3.53
-Brisbane,Australia,Brisbane Australia,-27.47,153.03
-Miami,FL,Miami FL,25.78,-80.21
-Montreal,Canada,Montreal Canada,45.5,-73.57
-Los Angeles,CA,Los Angeles CA,34.11,-118.41
-Xiamen,China,Xiamen China,24.48,118.09
-Miami,FL,Miami FL,25.78,-80.21
-Conway,SC,Conway SC,33.84,-79.05
-Dania Beach,FL,Dania Beach FL,26.05,-80.14
-Melbourne,Australia,Melbourne Australia,-37.81,144.96
-Tonbridge,UK,Tonbridge UK,51.2,0.28
-Miami,FL,Miami FL,25.78,-80.21
-Seattle,WA,Seattle WA,47.62,-122.35
-Baton Rouge,LA,Baton Rouge LA,30.45,-91.13
-Miami,FL,Miami FL,25.78,-80.21
-Miami,FL,Miami FL,25.78,-80.21
-Miami,FL,Miami FL,25.78,-80.21
-Chicago,IL,Chicago IL,41.84,-87.68
-Utrecht,Netherlands,Utrecht Netherlands,52.09,2.12
-Miami,FL,Miami FL,25.78,-80.21
-East Stroudsburg,PA,East Stroudsburg PA,41,-75.18
-Miami,FL,Miami FL,25.78,-80.21
-Miami,FL,Miami FL,25.78,-80.21
-Madison,WI,Madison WI,43.08,-89.39
-Miami,FL,Miami FL,25.78,-80.21
-Chapel Hill,NC,Chapel Hill NC,35.93,-79.04
-Seattle,WA,Seattle WA,47.62,-122.35
-Miami,FL,Miami FL,25.78,-80.21
-Palo Alto,CA,Palo Alto CA,37.4,-122.14
-Cambridge,MA,Cambridge MA,42.38,-71.12
-Miami,FL,Miami FL,25.78,-80.21
-Stony Brook,NY,Stony Brook NY,40.9,-73.12
-Hampton,VA,Hampton VA,37.05,-76.29
-Ft. Lauderdale,FL,Ft. Lauderdale FL,26.12,-80.14
-Townsville,QLD-AU,Townsville QLD-AU,-19.26,146.82
-Raleigh NC,NA,Raleigh NC,35.82,-78.66
-New York,NY,New York NY,40.67,-73.94
-Ventura,CA,Ventura CA,34.28,-119.29
-Tulsa,OK,Tulsa OK,36.13,-95.92
-Tampa,FL,Tampa FL,27.96,-82.48
-Davie,FL,Davie FL,26.08,-80.29
-Miami,FL,Miami FL,25.78,-80.21
+"city","state","name","lat","long"
+"Miami","FL","Miami FL",25.78,-80.21
+"Bogota","Columbia","Bogota Columbia",NA,NA
+"Barcelona","Spain","Barcelona Spain",NA,NA
+"Madison","WI","Madison WI",43.08,-89.39
+"Miami","FL","Miami FL",25.78,-80.21
+"College Park","MD","College Park MD",NA,NA
+"Corvallis","OR","Corvallis OR",44.57,-123.28
+"Tampa","FL","Tampa FL",27.96,-82.48
+"Baltimore","MD","Baltimore MD",39.3,-76.61
+"Tallahasse","FL","Tallahasse FL",NA,NA
+"Toronto","ON","Toronto ON",NA,NA
+"Columbia","SC","Columbia SC",34.04,-80.89
+"Charleston","SC","Charleston SC",32.79,-79.99
+"Tampa","FL","Tampa FL",27.96,-82.48
+"Norfolk","VA","Norfolk VA",36.92,-76.24
+"Fort Pierce","FL","Fort Pierce FL",NA,NA
+"Columbus","OH","Columbus OH",39.99,-82.99
+"St. Petersburg","FL","St. Petersburg FL",NA,NA
+"Davidson","NC","Davidson NC",NA,NA
+"Miami","FL","Miami FL",25.78,-80.21
+"Gainesville","FL","Gainesville FL",29.67,-82.34
+"Orlando","FL","Orlando FL",28.5,-81.37
+"Fort Lauderdale","FL","Fort Lauderdale FL",26.14,-80.14
+"Honolulu","HI","Honolulu HI",21.32,-157.8
+"San Diego","CA","San Diego CA",32.81,-117.14
+"Exeter","England","Exeter England",NA,NA
+"Brisbane","Australia","Brisbane Australia",NA,NA
+"Miami","FL","Miami FL",25.78,-80.21
+"Montreal","Canada","Montreal Canada",NA,NA
+"Los Angeles","CA","Los Angeles CA",34.11,-118.41
+"Xiamen","China","Xiamen China",NA,NA
+"Miami","FL","Miami FL",25.78,-80.21
+"Conway","SC","Conway SC",NA,NA
+"Dania Beach","FL","Dania Beach FL",NA,NA
+"Melbourne","Australia","Melbourne Australia",NA,NA
+"Tonbridge","UK","Tonbridge UK",NA,NA
+"Miami","FL","Miami FL",25.78,-80.21
+"Seattle","WA","Seattle WA",47.62,-122.35
+"Baton Rouge","LA","Baton Rouge LA",30.45,-91.13
+"Miami","FL","Miami FL",25.78,-80.21
+"Miami","FL","Miami FL",25.78,-80.21
+"Miami","FL","Miami FL",25.78,-80.21
+"Chicago","IL","Chicago IL",41.84,-87.68
+"Utrecht","Netherlands","Utrecht Netherlands",NA,NA
+"Miami","FL","Miami FL",25.78,-80.21
+"East Stroudsburg","PA","East Stroudsburg PA",NA,NA
+"Miami","FL","Miami FL",25.78,-80.21
+"Miami","FL","Miami FL",25.78,-80.21
+"Madison","WI","Madison WI",43.08,-89.39
+"Miami","FL","Miami FL",25.78,-80.21
+"Chapel Hill","NC","Chapel Hill NC",35.93,-79.04
+"Seattle","WA","Seattle WA",47.62,-122.35
+"Miami","FL","Miami FL",25.78,-80.21
+"Palo Alto","CA","Palo Alto CA",37.4,-122.14
+"Cambridge","MA","Cambridge MA",42.38,-71.12
+"Miami","FL","Miami FL",25.78,-80.21
+"Stony Brook","NY","Stony Brook NY",NA,NA
+"Hampton","VA","Hampton VA",37.05,-76.29
+"Ft. Lauderdale","FL","Ft. Lauderdale FL",NA,NA
+"Townsville","QLD-AU","Townsville QLD-AU",NA,NA
+"Raleigh NC",NA,"Raleigh NC NA",NA,NA
+"New York","NY","New York NY",40.67,-73.94
+"Ventura","CA","Ventura CA",NA,NA
+"Tulsa","OK","Tulsa OK",36.13,-95.92
+"Tampa","FL","Tampa FL",27.96,-82.48
+"Davie","FL","Davie FL",26.08,-80.29
+"Miami","FL","Miami FL",25.78,-80.21
+"Miami","Florida","Miami Florida",NA,NA
+"Medellin","Colombia","Medellin Colombia",NA,NA
+"Miami","FL","Miami FL",25.78,-80.21
+"Miami","FL","Miami FL",25.78,-80.21
+"Fitchburg","MA","Fitchburg MA",42.59,-71.82
+"Miami","FL","Miami FL",25.78,-80.21
+"Miami","FL","Miami FL",25.78,-80.21
+"Honolulu","Hawaii","Honolulu Hawaii",NA,NA
+"Syracuse","NY","Syracuse NY",43.04,-76.14
+"Grand Forks","ND","Grand Forks ND",47.92,-97.07
+"Stony Brook","NY","Stony Brook NY",NA,NA
+"Northampton","MA","Northampton MA",NA,NA
+"Port-of-Spain","NY","Port-of-Spain NY",NA,NA
+"Tampa","Florida","Tampa Florida",NA,NA
+"Miami","Florida","Miami Florida",NA,NA
+"Caracas","Venezuela","Caracas Venezuela",NA,NA
+"St Petersburg","FL","St Petersburg FL",NA,NA
+"New Bedford","MA","New Bedford MA",41.66,-70.94
+"Miami","FL","Miami FL",25.78,-80.21
+"Gloucester Point","VA","Gloucester Point VA",NA,NA
+"Columbia","SC","Columbia SC",34.04,-80.89

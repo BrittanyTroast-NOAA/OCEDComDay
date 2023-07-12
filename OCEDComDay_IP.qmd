@@ -46,6 +46,8 @@ testcity<-testcity[,c(5,3:4)]
 home<-left_join(home, testcity, by="name")
 # write.csv(home, "Hometown.csv")
 
+##ADD NEW ENTRIES
+
 home<-read.csv("Hometown_Edited.csv")
 home<-select(home,city, state, name, lat, long=lng)
 #Map of Hometown locations
@@ -75,6 +77,8 @@ schloc<-left_join(schloc, uscity, by="name")
 schloc<-schloc[,c(1:3,6:7)]
 
 # write.csv(schloc,"School_Loc.csv", row.names = F)
+
+##MANUALLY ADD NEW
 
 #MANUAL FIX
 schloc<-read.csv("School_Loc_Fixed.csv")

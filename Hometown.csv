@@ -1,42 +1,55 @@
-"","id","city","state","name","lat","lng"
-"1",1,"Philadelphia","PA","Philadelphia PA",40.0077,-75.1339
-"2",2,"Bogota","Colombia","Bogota Colombia",NA,NA
-"3",3,"Chanhassen","MN","Chanhassen MN",44.8546,-93.5621
-"4",4,"Rochester","NY","Rochester NY",43.168,-77.6162
-"5",5,"Tampa","FL","Tampa FL",27.9945,-82.4447
-"6",6,"Bridgman","MI","Bridgman MI",41.9396,-86.5652
-"7",7,"Moultrie","GA","Moultrie GA",31.1591,-83.7708
-"8",8,"",NA," NA",NA,NA
-"9",9,"Herndon","VA","Herndon VA",38.9699,-77.3867
-"10",10,"Racine","WI","Racine WI",42.7274,-87.8135
-"11",11,"Lunenburg","MA","Lunenburg MA",NA,NA
-"12",12,"Springboro","OH","Springboro OH",39.5615,-84.2348
-"13",13,"Charleston","SC","Charleston SC",32.8168,-79.9687
-"14",14,"Wesley Chapel","FL","Wesley Chapel FL",28.2106,-82.3238
-"15",15,"Prince George","VA","Prince George VA",37.2209,-77.2683
-"16",16,"Basking Ridge","NJ","Basking Ridge NJ",40.7061,-74.5568
-"17",17,"Miami","FL","Miami FL",25.784,-80.2101
-"18",18,"Great Falls","VA","Great Falls VA",39.011,-77.3013
-"19",19,"San Diego","CA","San Diego CA",32.8313,-117.1222
-"20",20,"Fuzhou","China","Fuzhou China",NA,NA
-"21",21,"Florence","KY","Florence KY",38.9899,-84.6471
-"22",22,"Sevenoaks","Kent (UK)","Sevenoaks Kent (UK)",NA,NA
-"23",23,"Eden Prairie","MN","Eden Prairie MN",44.8488,-93.4595
-"24",24,"Gainesville","FL","Gainesville FL",29.6804,-82.3459
-"25",25,"Red Bank","NJ","Red Bank NJ",40.348,-74.0672
-"26",26,"Katy","TX","Katy TX",29.7905,-95.8353
-"27",27,"Geldrop","the Netherlands","Geldrop the Netherlands",NA,NA
-"28",28,"Miami","FL","Miami FL",25.784,-80.2101
-"29",29,"Allentown","PA","Allentown PA",40.5961,-75.4756
-"30",30,"Princeton","NJ","Princeton NJ",40.3562,-74.6693
-"31",31,"Waukesha","WI","Waukesha WI",43.0087,-88.2464
-"32",32,"Hutchinson","KS","Hutchinson KS",38.0671,-97.9081
-"33",33,"Fort Lauderdale","FL","Fort Lauderdale FL",26.1412,-80.1464
-"34",34,"West Point","NY","West Point NY",41.3645,-74.0123
-"35",35,"Indianapolis","IN","Indianapolis IN",39.7771,-86.1458
-"36",36,"New York","NY","New York NY",40.6943,-73.9249
-"37",37,"Atlanta GA",NA,"Atlanta GA NA",NA,NA
-"38",38,"New York","NY","New York NY",40.6943,-73.9249
-"39",39,"Lafayette","CA","Lafayette CA",37.8919,-122.1189
-"40",40,"Gladstone","MO","Gladstone MO",39.2134,-94.5592
-"41",41,"North Haledon","NJ","North Haledon NJ",40.9628,-74.1844
+,Timestamp,city,state,name,lat,lng
+1,6/27/2023 15:45,Philadelphia,PA,Philadelphia PA,40.0077,-75.1339
+2,6/27/2023 16:59,Bogota,Colombia,Bogota Colombia,NA,NA
+3,6/27/2023 17:35,Chanhassen,MN,Chanhassen MN,44.8546,-93.5621
+4,6/27/2023 18:20,Rochester,NY,Rochester NY,43.168,-77.6162
+5,6/28/2023 8:24,Tampa,FL,Tampa FL,27.9945,-82.4447
+6,6/28/2023 8:36,Bridgman,MI,Bridgman MI,41.9396,-86.5652
+7,6/28/2023 10:31,Moultrie,GA,Moultrie GA,31.1591,-83.7708
+8,6/28/2023 10:47,,NA, NA,NA,NA
+9,6/28/2023 12:24,Herndon,VA,Herndon VA,38.9699,-77.3867
+10,6/28/2023 16:04,Racine,WI,Racine WI,42.7274,-87.8135
+11,6/28/2023 22:03,Lunenburg,MA,Lunenburg MA,NA,NA
+12,6/29/2023 10:33,Springboro,OH,Springboro OH,39.5615,-84.2348
+13,6/29/2023 12:50,Charleston,SC,Charleston SC,32.8168,-79.9687
+14,6/30/2023 11:49,Wesley Chapel,FL,Wesley Chapel FL,28.2106,-82.3238
+15,6/30/2023 12:05,Prince George,VA,Prince George VA,37.2209,-77.2683
+16,6/30/2023 15:28,Basking Ridge,NJ,Basking Ridge NJ,40.7061,-74.5568
+17,7/2/2023 15:38,Miami,FL,Miami FL,25.784,-80.2101
+18,7/3/2023 11:43,Great Falls,VA,Great Falls VA,39.011,-77.3013
+19,7/3/2023 13:15,San Diego,CA,San Diego CA,32.8313,-117.1222
+20,7/3/2023 15:38,Fuzhou,China,Fuzhou China,NA,NA
+21,7/4/2023 18:19,Florence,KY,Florence KY,38.9899,-84.6471
+22,7/5/2023 11:14,Sevenoaks,Kent (UK),Sevenoaks Kent (UK),NA,NA
+23,7/5/2023 12:50,Eden Prairie,MN,Eden Prairie MN,44.8488,-93.4595
+24,7/5/2023 13:40,Gainesville,FL,Gainesville FL,29.6804,-82.3459
+25,7/5/2023 13:56,Red Bank,NJ,Red Bank NJ,40.348,-74.0672
+26,7/5/2023 14:18,Katy,TX,Katy TX,29.7905,-95.8353
+27,7/5/2023 14:25,Geldrop,the Netherlands,Geldrop the Netherlands,NA,NA
+28,7/5/2023 14:56,Miami,FL,Miami FL,25.784,-80.2101
+29,7/5/2023 16:00,Allentown,PA,Allentown PA,40.5961,-75.4756
+30,7/6/2023 10:04,Princeton,NJ,Princeton NJ,40.3562,-74.6693
+31,7/6/2023 10:16,Waukesha,WI,Waukesha WI,43.0087,-88.2464
+32,7/6/2023 10:19,Hutchinson,KS,Hutchinson KS,38.0671,-97.9081
+33,7/6/2023 11:43,Fort Lauderdale,FL,Fort Lauderdale FL,26.1412,-80.1464
+34,7/6/2023 12:14,West Point,NY,West Point NY,41.3645,-74.0123
+35,7/6/2023 12:33,Indianapolis,IN,Indianapolis IN,39.7771,-86.1458
+36,7/6/2023 12:39,New York,NY,New York NY,40.6943,-73.9249
+37,7/6/2023 13:03,Atlanta GA,NA,Atlanta GA NA,NA,NA
+38,7/6/2023 14:59,New York,NY,New York NY,40.6943,-73.9249
+39,7/6/2023 16:40,Lafayette,CA,Lafayette CA,37.8919,-122.1189
+40,7/6/2023 17:08,Gladstone,MO,Gladstone MO,39.2134,-94.5592
+41,7/7/2023 7:17,North Haledon,NJ,North Haledon NJ,40.9628,-74.1844
+42,7/7/2023 8:34,Medellin,Colombia,Medellin Colombia,NA,NA
+43,7/7/2023 9:26,Bloomington,IN,Bloomington IN,39.1637,-86.5257
+44,7/7/2023 10:05,Detroit,MI,Detroit MI,42.3834,-83.1024
+45,7/7/2023 10:08,Upton,MA,Upton MA,NA,NA
+46,7/7/2023 10:21,Lexington,MA,Lexington MA,NA,NA
+47,7/7/2023 11:40,Glendale,CA,Glendale CA,34.1819,-118.2468
+48,7/7/2023 15:46,Margate City,NJ,Margate City NJ,39.3307,-74.507
+49,7/7/2023 15:49,Holbrook,NY,Holbrook NY,40.7944,-73.07
+50,7/7/2023 16:09,Austin,TX,Austin TX,30.3005,-97.7522
+51,7/7/2023 16:31,,NA, NA,NA,NA
+52,7/8/2023 0:26,Safety Harbor,FL,Safety Harbor FL,28.008,-82.6964
+53,7/10/2023 10:04,Caracas,Venezuela,Caracas Venezuela,NA,NA
+54,7/10/2023 10:17,Kansas City,MO,Kansas City MO,39.1238,-94.5541
